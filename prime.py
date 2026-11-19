@@ -7,7 +7,7 @@ def is_prime(n):
         return False
 
     # Checking factors up to sqrt(n)
-    for i in range(2, int(math.sqrt(n))):
+    for i in range(2, int(math.sqrt(n)) + 1):
         if n % i == 0:
             return False
 
