@@ -1,5 +1,6 @@
 import os
 import pathlib
+import sys
 import unittest
 
 from selenium import webdriver
@@ -11,8 +12,15 @@ def file_uri(filename):
     return pathlib.Path(os.path.abspath(filename)).as_uri()
 
 
-# Sets up web driver using Google Chrome
-driver = webdriver.Chrome()
+# Stop selenium from crashing in an environment without a display (like GitHub Actions)
+if sys.platform == 'linux' and not os.getenv('DISPLAY'):
+    options = ChromeOptions()
+    options.add_argument("--headless=new")
+    driver = webdriver.Chrome(options=options)
+else:
+
+    # Sets up web driver using Google Chrome
+    driver = webdriver.Chrome()
 
 
 # Standard outline of testing class
