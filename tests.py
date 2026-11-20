@@ -14,7 +14,7 @@ def file_uri(filename):
 
 # Stop selenium from crashing in an environment without a display (like GitHub Actions)
 if sys.platform == 'linux' and not os.getenv('DISPLAY'):
-    options = ChromeOptions()
+    options = webdriver.ChromeOptions()
     options.add_argument("--headless=new")
     driver = webdriver.Chrome(options=options)
 else:
