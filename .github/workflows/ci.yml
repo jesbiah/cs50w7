@@ -11,3 +11,4 @@ jobs:
         pip3 install --user django
         pip3 install --user -r requirements.txt
         python airline/manage.py test
+        python tests.py
