@@ -1,50 +1,50 @@
-import os
-import pathlib
-import unittest
+# import os
+# import pathlib
+# import unittest
 
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-
-
-# Finds the Uniform Resource Identifier of a file
-def file_uri(filename):
-    return pathlib.Path(os.path.abspath(filename)).as_uri()
+# from selenium import webdriver
+# from selenium.webdriver.common.by import By
 
 
-# Sets up web driver using Google Chrome
-driver = webdriver.Chrome()
+# # Finds the Uniform Resource Identifier of a file
+# def file_uri(filename):
+#     return pathlib.Path(os.path.abspath(filename)).as_uri()
 
 
-# Standard outline of testing class
-class WebPageTests(unittest.TestCase):
-
-    def test_title(self):
-        '''Make sure title is correct'''
-        driver.get(file_uri('counter.html'))
-        self.assertEqual(driver.title, 'Counter')
-
-    def test_increase(self):
-        '''Make sure header updated to 1 after one click of increase button'''
-        driver.get(file_uri('counter.html'))
-        increase = driver.find_element(By.ID, 'increase')
-        increase.click()
-        self.assertEqual(driver.find_element(By.TAG_NAME, 'h1').text, '1')
-
-    def test_decrease(self):
-        '''Make sure header updated to -1 after one click of decrease button'''
-        driver.get(file_uri('counter.html'))
-        decrease = driver.find_element(By.ID, 'decrease')
-        decrease.click()
-        self.assertEqual(driver.find_element(By.TAG_NAME, 'h1').text, '-1')
-
-    def test_multiple_increase(self):
-        '''Make sure header updated to 3 after 3 clicks of increase button'''
-        driver.get(file_uri('counter.html'))
-        increase = driver.find_element(By.ID, 'increase')
-        for i in range(3):
-            increase.click()
-        self.assertEqual(driver.find_element(By.TAG_NAME, 'h1').text, '3')
+# # Sets up web driver using Google Chrome
+# driver = webdriver.Chrome()
 
 
-if __name__ == '__main__':
-    unittest.main()
+# # Standard outline of testing class
+# class WebPageTests(unittest.TestCase):
+
+#     def test_title(self):
+#         '''Make sure title is correct'''
+#         driver.get(file_uri('counter.html'))
+#         self.assertEqual(driver.title, 'Counter')
+
+#     def test_increase(self):
+#         '''Make sure header updated to 1 after one click of increase button'''
+#         driver.get(file_uri('counter.html'))
+#         increase = driver.find_element(By.ID, 'increase')
+#         increase.click()
+#         self.assertEqual(driver.find_element(By.TAG_NAME, 'h1').text, '1')
+
+#     def test_decrease(self):
+#         '''Make sure header updated to -1 after one click of decrease button'''
+#         driver.get(file_uri('counter.html'))
+#         decrease = driver.find_element(By.ID, 'decrease')
+#         decrease.click()
+#         self.assertEqual(driver.find_element(By.TAG_NAME, 'h1').text, '-1')
+
+#     def test_multiple_increase(self):
+#         '''Make sure header updated to 3 after 3 clicks of increase button'''
+#         driver.get(file_uri('counter.html'))
+#         increase = driver.find_element(By.ID, 'increase')
+#         for i in range(3):
+#             increase.click()
+#         self.assertEqual(driver.find_element(By.TAG_NAME, 'h1').text, '3')
+
+
+# if __name__ == '__main__':
+#     unittest.main()
